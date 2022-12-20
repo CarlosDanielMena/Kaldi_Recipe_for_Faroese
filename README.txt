@@ -21,6 +21,74 @@ requirements and to specify some paths; all of these indicated in the
 "run.sh" script of the recipe.
 
 -------------------------------------------------------------------------------
+Running the recipe
+-------------------------------------------------------------------------------
+
+* Create a folder to run the recipe
+
+ $ mkdir mkdir ~/recipe
+ $ cd ~/recipe
+
+* Download the Ravnursson Corpus
+
+ $ curl --remote-name-all https://repository.clarin.is/repository/xmlui/bitstream/handle/20.500.12537/276{/RAVNURSSON.zip}
+ 
+ $ unzip RAVNURSSON.zip
+ 
+You will have to find a folder called RAVNURSSON with the following content:
+
+ - RAVNURSSON
+   - speech
+   - LICENSE.txt
+   - metadata.tsv
+   - README.txt
+   
+Keep the path to that RAVNURSSON folder.
+ 
+* Clone the recipe
+
+ $ git clone https://github.com/CarlosDanielMena/Kaldi_Recipe_for_Faroese
+
+ Inside the folder "Kaldi_Recipe_for_Faroese", you will find:
+ 
+  - Kaldi_Recipe_for_Faroese
+    - ravnursson
+    - README.txt
+    
+Now you have to copy the folder ravnursson to the "egs" directory of your Kaldi installation
+
+ $ cp Kaldi_Recipe_for_Faroese/ravnursson <path-to-your-kaldi-installation>/kaldi/egs
+ 
+ $ cd <path-to-your-kaldi-installation>/kaldi/egs/ravnursson/s5
+ 
+* Configuration of the recipe
+
+It is supposed that you are in the folder:
+<path-to-your-kaldi-installation>/kaldi/egs/ravnursson/s5
+
+ - Open the file run.sh
+ - Modify the line: 
+ corpus_root=/<path-to-ravnursson-corpus>/RAVNURSSON
+ 
+ You will have to update the varibale "corpus_root" with the path to the
+ folder RAVNURSSON that you kept in a previous step.
+ 
+ - If you don't have a GPU open the file cmd.sh
+ and change the line:
+ 
+ export cuda_cmd="run.pl --gpu 1"
+ 
+ to
+ 
+ export cuda_cmd="run.pl"
+ 
+* Run the recipe
+
+If your Kaldi installation works correctly you can just type:
+
+ $ bash run.sh
+
+-------------------------------------------------------------------------------
 Citation
 -------------------------------------------------------------------------------
 

@@ -21,6 +21,28 @@ requirements and to specify some paths; all of these indicated in the
 "run.sh" script of the recipe.
 
 -------------------------------------------------------------------------------
+About Kaldi
+-------------------------------------------------------------------------------
+
+In order to execute this recipe, you ned to install Kaldi in your system.
+If you work in Ubuntu, we recommend the following installation tutorial:
+
+assemblyai.com/blog/kaldi-speech-recognition-for-beginners-a-simple-tutorial/
+
+Please be sure that Kaldi is properly install before running this recipe.
+
+-------------------------------------------------------------------------------
+Prerequisites
+-------------------------------------------------------------------------------
+
+If you are in Ubuntu, you will need to install the following packages:
+ $ sudo apt-get install flac
+ $ sudo apt install libfst-tools
+
+In python you will need:
+ - pandas
+
+-------------------------------------------------------------------------------
 Running the recipe
 -------------------------------------------------------------------------------
 
